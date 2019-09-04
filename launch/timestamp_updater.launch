@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="node_name" default="timestamp_updater_node"/>
+    <arg name="topic_type" default="nav_msgs/Odometry"/>
+    <arg name="input_topic" default="$(arg node_name)/input"/>
+    <arg name="output_topic" default="$(arg node_name)/output"/>
+
+    <node pkg="timestamp_updater" type="timestamp_updater_node" name="$(arg node_name)" output="screen" respawn="false" respawn_delay="0">
+        <param name="topic_type" value="$(arg topic_type)"/>
+        <param name="input_topic" value="$(arg input_topic)"/>
+        <param name="output_topic" value="$(arg output_topic)"/>
+    </node>
+</launch>
